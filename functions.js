@@ -71,21 +71,39 @@ function clean() {
 }
 function registerMember() {
 	var kadi = $("#kadi").val();
-	if(kadi != "") {
+	var ksif = $("#ksif").val();
+	if(kadi != "" && ksif != "") {
 		var date = new Date();
 		var userKey = firebase.database().ref("user").push().key;
 		firebase.database().ref("user/" + userKey).set({
 			username: kadi,
+			password: ksif,
 			kulid: userKey,
 			hour: date.getHours(),
 			minute: date.getMinutes()
 		});
-		$("#loginScreen").hide();
-		$("#chatScreen").show();
-		uploadChat();
-		uploadUser();
+		alert("Kaydınız Tamamlanmıştır, Şimdi giriş yapınız")
 	} else {
-		alert("Kullanıcı adını boş bırakmayın !");
+		alert("Kullanıcı adını ve şifreyi boş bırakma aslanım");
+	}
+}
+function loginMember() {
+	var kadi = $("#kadi").val();
+	var ksif = $("#ksif").val();
+	var userKey = firebase.database().ref("user").push().key;
+	if(kadi != "" && ksif != "") {
+		let ref = fireabase.database().ref("user/" + userKey);
+		ref.on("value").then(() => {
+			$("#loginScreen").hide();
+			$("#chatScreen").show();
+			uploadChat();
+			uploadUser();
+		}).catch(err => {
+			alert("Kullanıcı adı veya şifre hatalı");
+		})
+		
+	} else {
+		alert("Kullanıcı adını ve şifreyi boş bırakma aslanım");
 	}
 }
 function sendMessage() {

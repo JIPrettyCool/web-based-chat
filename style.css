@@ -69,7 +69,7 @@ progress {
 }
 .incomingMessage div {
 	border-radius: 15px 15px 15px 5px;
-	background-color: #ff3333;
+	background-color: #ffffff;
 	padding: 11px;
 }
 .outgoingMessage {
@@ -83,6 +83,6 @@ progress {
 }
 .outgoingMessage div {
 	border-radius: 15px 15px 5px 15px;
-	background-color: #00cc47;
+	background-color: #2eee71;
 	padding: 11px;
 }

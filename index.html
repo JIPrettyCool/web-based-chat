@@ -21,12 +21,15 @@
 		</div>
 		<div class="main">
 			<div class="card-body">
-				<h1 class="p-4 text-white">JI Chat</h1>
+				<h1 class="p-4 text-white">MeriChat</h1>
 				<progress id="uploader" value="0" max="100"></progress>
 				<div id="loginScreen">
 					<input id="kadi" class="form-control col-6" placeholder="Kullanıcı Adı" autofocus onkeydown="if (event.keyCode == 13){registerMember();}">
 					<br>
-					<button class="btn btn-primary" type="submit" onclick="registerMember();">DEVAM</button>
+					<input id="ksif" class="form-control col-6" placeholder="Şifre" autofocus onkeydown="if (event.keyCode == 13){registerMember();}">
+					<br>
+					<button class="btn btn-primary" type="submit" onclick="registerMember();">REGISTER</button>
+					<button class="btn btn-primary" type="submit" onclick="loginMember();">LOGIN</button>
 				</div>
 				<div id="chatScreen" class="chatScreen">
 					<div id="messageArea"></div>
